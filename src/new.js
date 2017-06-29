@@ -7,24 +7,20 @@ class New extends Component {
         console.log('constructor');
     }
 
-    componentWillMount() {
-        console.log('componentWillMount');
+    renderItem(item) {
+       return(
+           <li key={ item.id }>{ item.text }</li>
+       );
     }
 
-    componentDidMount() {
-        console.log('componenetDidMount');
-    }
-
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-    }
 
     render() {
-        console.log('render');
         return (
             <div style={ { backgroundColor: 'beige' } }>
                 <h2 className="app__title">Title of new component</h2>
-                <p className="app__paragraph">{ this.props.textContent }</p>
+                <ul>
+                    {this.props.array.map(this.renderItem.bind(this))}
+                </ul>
             </div>
         );
     }

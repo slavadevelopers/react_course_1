@@ -7,25 +7,38 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            timer: 0
+            array: [
+                {
+                    id: 1,
+                    text: 'It`s item number 1'
+                },
+                {
+                    id: 2,
+                    text: 'It`s item number 2'
+                },
+                {
+                    id: 3,
+                    text: 'It`s item number 3'
+                },
+                {
+                    id: 4,
+                    text: 'It`s item number 4'
+                },
+                {
+                    id: 5,
+                    text: 'It`s item number 5'
+                }
+            ]
         }
     }
 
-    componentWillMount() {
-        setInterval(() => {
-            this.setState({
-                timer: this.state.timer + 1
-            })
-        }, 500)
-    }
+
 
     render() {
         return (
             <div style={ { backgroundColor: 'aliceblue' } }>
-                <h1 className="app__main-title">What is Lifecycle...</h1>
-                <p className="app__paragraph">Look in console, wait 5 sec.</p>
-                <p>{ this.state.timer }</p>
-                { this.state.timer <= 10 ? <New textContent="It`s description new component"/> : null }
+                <h1 className="app__main-title">What is it...</h1>
+                <New array={ this.state.array } />
             </div>
         );
     }
